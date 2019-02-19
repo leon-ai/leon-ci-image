@@ -27,6 +27,4 @@ WORKDIR leon
 
 EXPOSE 1337
 
-VOLUME ["/leon/.env"]
-
 CMD /start.sh
