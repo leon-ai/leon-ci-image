@@ -1,0 +1,8 @@
+version: '3'
+services:  
+  leon:
+    build: ./
+    volumes:
+      - ./.env.sample:/leon/.env
+    ports:
+      - "1337:1337"
