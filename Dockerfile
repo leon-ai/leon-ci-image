@@ -8,7 +8,6 @@ RUN apk update --no-cache \
     nodejs \
     npm \
     python3 \
-    yarn \
     git
 
 RUN git clone -b master --depth=1 https://github.com/leon-ai/leon.git leon \
