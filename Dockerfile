@@ -10,20 +10,23 @@ RUN apk update --no-cache \
     python3 \
     git
 
+RUN ln -sf /usr/bin/pip3 /usr/bin/pip
+RUN pip install --upgrade pip
+RUN pip install --user pipenv
+RUN ln -sf /root/.local/bin/pipenv /usr/bin/pipenv
+
 RUN git clone -b master --depth=1 https://github.com/leon-ai/leon.git leon \
   && cd leon \
-  && npm i 
-
-RUN ln -sf /usr/bin/pip3 /usr/bin/pip
-
-WORKDIR leon
+  && npm i \
+  && npm run postinstall
 
 COPY start.sh /start.sh
-
 RUN chmod +x /start.sh
+
+WORKDIR leon
 
 EXPOSE 1337
 
 VOLUME ["/leon/.env"]
 
-ENTRYPOINT [ "/start.sh" ]
+CMD /start.sh
