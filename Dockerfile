@@ -1,8 +1,7 @@
 FROM node:10-alpine
 
 # Install system packages
-RUN apk update --no-cache \
-  && apk add --no-cache \
+RUN apk add --no-cache \
     ca-certificates \
     build-base \
     python3 \
