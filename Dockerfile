@@ -4,7 +4,7 @@ FROM node:16-alpine
 RUN apk add --no-cache \
     ca-certificates \
     build-base \
-    python3 \
+    py3-pip \
     git
 
 # Upgrade pip and install Pipenv
